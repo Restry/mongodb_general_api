@@ -120,12 +120,12 @@ router.get('/:table', (req, res) => {
     }
     if (data.$sortdesc) {
       const sort = {}
-      sort[data.$sortesc] = 1;
+      sort[data.$sortesc] = -1;
       execute = execute.sort(sort)
     }
     if (data.$sort) {
       const sort = {}
-      sort[data.$sort] = -1;
+      sort[data.$sort] = 1;
       execute = execute.sort(sort)
     }
 
