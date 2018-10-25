@@ -118,17 +118,17 @@ router.get('/:table', (req, res) => {
     if (data.$skip) {
       execute = execute.skip(parseInt(data.$skip))
     }
-    if (data.$sortdesc) {
-      const sort = {}
-      sort[data.$sortesc] = -1;
-      execute = execute.sort(sort)
-    }
     if (data.$sort) {
       const sort = {}
       sort[data.$sort] = 1;
       execute = execute.sort(sort)
     }
-
+    if (data.$sortdesc) {
+      const sort = {}
+      sort[data.$sortdesc] = -1;
+      execute = execute.sort(sort)
+    }
+    
     return execute.toArray();
   }).then((r) => {
     // setTimeout(() => {
